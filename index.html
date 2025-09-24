@@ -1,9 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Digital Visiting Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #fff;
+      width: 90%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .card h1 {
+      margin: 10px 0 5px;
+      font-size: 22px;
+      color: #333;
+    }
+
+    .card p {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .buttons {
+      margin-top: 15px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #fff;
+      background: #0073e6;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background: #005bb5;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, GitHub!</h1>
+  <div class="card">
+    <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    <h1>Your Name</h1>
+    <p>Web Developer | Designer</p>
+    <p>📞 +1 234 567 890</p>
+    <p>✉️ your@email.com</p>
+
+    <div class="buttons">
+      <a href="tel:+1234567890">Call</a>
+      <a href="mailto:your@email.com">Email</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
 </body>
 </html>
