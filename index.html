@@ -1,122 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Digital Visiting Card</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .card {
-      width: 100%;
-      max-width: 360px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .top-image-container {
-      position: relative;
-    }
-    .top-image-container img {
-      width: 100%;
-      display: block;
-      filter: grayscale(100%);
-    }
-    /* Wavy yellow/navy section */
-    .wave {
-      position: relative;
-      background: #0a1a3d; /* dark navy */
-      color: white;
-      padding: 50px 20px 80px;
-      text-align: center;
-    }
-    .wave::before {
-      content: "";
-      position: absolute;
-      top: -50px;
-      left: 0;
-      width: 100%;
-      height: 100px;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23FFD700" fill-opacity="1" d="M0,64L60,90.7C120,117,240,171,360,197.3C480,224,600,224,720,208C840,192,960,160,1080,133.3C1200,107,1320,85,1380,74.7L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>');
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-    .logo-circle {
-      position: absolute;
-      top: -30px;
-      left: 20px;
-      background: #FFD700; /* yellow */
-      color: #0a1a3d;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 28px;
-    }
-    .wave h2 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    .wave p {
-      margin: 5px 0 0;
-      font-size: 0.9rem;
-      opacity: 0.85;
-    }
-    .icon-row {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 15px;
-    }
-    .icon {
-      background: #FFD700;
-      color: #0a1a3d;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 20px;
-      transition: transform 0.3s;
-    }
-    .icon:hover {
-      transform: scale(1.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Tech - Appliance Repair</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* --- Basic Setup --- */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* --- Main vCard (Above the Fold) --- */
+        .vcard-container {
+            max-width: 450px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            background: #e9ecef;
+            border: 3px dashed #004a99; /* Blue from poster */
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .vcard-container h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #004a99; /* Blue from poster */
+        }
+
+        .vcard-container .tagline {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .offer-highlight {
+            background: #f0f5ff;
+            border: 1px solid #b3cfff;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .offer-highlight .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #004a99;
+            line-height: 1;
+        }
+
+        .offer-highlight .price-desc {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        /* --- Clickable Buttons --- */
+        .contact-buttons .btn {
+            display: block;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-call {
+            background-color: #004a99; /* Primary Blue */
+        }
+        .btn-whatsapp {
+            background-color: #25D366; /* WhatsApp Green */
+        }
+        .btn-email {
+            background-color: #6c757d; /* Neutral Grey */
+        }
+        
+        .btn i {
+            margin-right: 10px;
+        }
+
+        /* --- Social Media Icons --- */
+        .social-media {
+            margin-top: 25px;
+        }
+
+        .social-media a {
+            font-size: 2.2rem;
+            color: #004a99;
+            margin: 0 12px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .social-media a:hover {
+            color: #007bff;
+        }
+
+        /* --- Services Details (Below the Fold) --- */
+        .services-container {
+            max-width: 450px;
+            margin: 25px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .services-container h2 {
+            text-align: center;
+            color: #004a99;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            background: #ffffff;
+            border-left: 5px solid #004a99;
+            padding: 15px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .features-list li strong {
+            color: #004a99;
+        }
+
+        /* --- Individual Service Cards --- */
+        .service-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            margin-bottom: 20px;
+            overflow: hidden; /* To contain the image radius */
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .service-card-content {
+            padding: 20px;
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
+            margin: 0;
+        }
+
+    </style>
 </head>
 <body>
-  <div class="card">
-    <div class="top-image-container">
-      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Profile Photo">
+
+    <div class="vcard-container">
+        
+        <div class="logo-placeholder">
+            LOGO
+        </div>
+        
+        <h1>Fixed Tech</h1>
+        <p class="tagline">Appliance Repair and Solutions</p>
+
+        <div class="offer-highlight">
+            <div class="price">$80</div>
+            <div class="price-desc">Flat-Rate Diagnostics & Repairs</div>
+        </div>
+
+        <div class="contact-buttons">
+            <a href="tel:+12499970555" class="btn btn-call">
+                <i class="fa-solid fa-phone"></i>
+                Book a Visit Now
+            </a>
+            <a href="https://wa.me/12499970555?text=Hello%20Fixed%20Tech!%20My%20appliance%20is%20acting%20up%20and%20I%20need%20a%20repair%20service." class="btn btn-whatsapp" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                Send a WhatsApp
+            </a>
+            <a href="mailto:info@fixedtech.ca" class="btn btn-email">
+                <i class="fa-solid fa-envelope"></i>
+                Send an Email
+            </a>
+        </div>
+
+        <div class="social-media">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+
     </div>
 
-    <div class="wave">
-      <div class="logo-circle"><i class="fas fa-home"></i></div>
-      <h2>Leslie Murphy</h2>
-      <p>Property Advisor</p>
+    <div class="services-container">
+        <h2>Our Expert Services</h2>
+        
+        <p class="intro-text">
+            Is your appliance acting up? Don't let a malfunction disrupt your day. We're here to help!
+        </p>
 
-      <div class="icon-row">
-        <div class="icon"><i class="fas fa-phone"></i></div>
-        <div class="icon"><i class="fas fa-envelope"></i></div>
-        <div class="icon"><i class="fas fa-comment"></i></div>
-        <div class="icon"><i class="fab fa-whatsapp"></i></div>
-      </div>
+        <ul class="features-list">
+            <li><strong>Flat-Rate Service:</strong> Only $80 for diagnostics and repairs.</li>
+            <li><strong>Expert Technicians:</strong> Skilled professionals ready to fix your appliances efficiently.</li>
+            <li><strong>Transparent Pricing:</strong> No hidden fees—what you see is what you pay.</li>
+        </ul>
+
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1616464916356-3a777b0b2b7c?q=80&w=400&auto=format&fit=crop" alt="Refrigerator Repair">
+            <div class="service-card-content">
+                <h3>Refrigerator & Freezer Repair</h3>
+                <p>From not cooling to strange noises or ice maker issues, we service all brands of refrigerators, freezers, and wine coolers.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=400&auto=format&fit=crop" alt="Washing Machine Repair">
+            <div class="service-card-content">
+                <h3>Washing Machine Repair</h3>
+                <p>Won't spin, drain, or start? We fix top-load and front-load washers, handling leaks, error codes, and mechanical failures.</p>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1610557892470-538688c3b0f7?q=80&w=400&auto=format&fit=crop" alt="Dryer Repair">
+            <div class="service-card-content">
+                <h3>Dryer Repair</h3>
+                <p>If your dryer is not heating, tumbling, or is taking too long to dry, our experts can diagnose and repair it safely and efficiently.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1601135065483-5f053c8c93b3?q=80&w=400&auto=format&fit=crop" alt="Stove and Oven Repair">
+            <div class="service-card-content">
+                <h3>Stove, Oven & Range Repair</h3>
+                <p>We handle all cooking appliance issues, including burners that won't light, ovens that won't heat, and broken control panels.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1581451996720-3a560c5a1db3?q=80&w=400&auto=format&fit=crop" alt="Dishwasher Repair">
+            <div class="service-card-content">
+                <h3>Dishwasher Repair</h3>
+                <p>Leaking, not cleaning, or not draining? We'll get your dishwasher back to working order, fixing pumps, seals, and spray arms.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1596205218840-2f00f0f42b4c?q=80&w=400&auto=format&fit=crop" alt="Microwave Repair">
+            <div class="service-card-content">
+                <h3>Microwave Repair</h3>
+                <p>For microwaves that won't heat, turn on, or have a broken turntable, we offer quick repairs for built-in and over-the-range models.</p>
+            </div>
+        </div>
+
     </div>
-  </div>
+
 </body>
 </html>
