@@ -26,19 +26,11 @@
             box-sizing: border-box;
         }
 
-        .logo-placeholder {
-            width: 100px;
-            height: 100px;
-            background: #e9ecef;
-            border: 3px dashed #004a99; /* Blue from poster */
-            border-radius: 50%;
+        .logo {
+            max-width: 150px; /* Control max size */
+            height: auto;     /* Maintain aspect ratio */
             margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #555;
-            font-weight: 600;
+            display: block;
         }
 
         .vcard-container h1 {
@@ -209,9 +201,7 @@
 
     <div class="vcard-container">
         
-        <div class="logo-placeholder">
-            LOGO
-        </div>
+        <img src="logo.png" alt="Fixed Tech Logo" class="logo">
         
         <h1>Fixed Tech</h1>
         <p class="tagline">Appliance Repair and Solutions</p>
@@ -258,7 +248,7 @@
         </ul>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1616464916356-3a777b0b2b7c?q=80&w=400&auto=format&fit=crop" alt="Refrigerator Repair">
+            <img src="service1.jpg" alt="Refrigerator Repair">
             <div class="service-card-content">
                 <h3>Refrigerator & Freezer Repair</h3>
                 <p>From not cooling to strange noises or ice maker issues, we service all brands of refrigerators, freezers, and wine coolers.</p>
@@ -266,7 +256,7 @@
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=400&auto=format&fit=crop" alt="Washing Machine Repair">
+            <img src="service2.jpg" alt="Washing Machine Repair">
             <div class="service-card-content">
                 <h3>Washing Machine Repair</h3>
                 <p>Won't spin, drain, or start? We fix top-load and front-load washers, handling leaks, error codes, and mechanical failures.</p>
@@ -274,7 +264,7 @@
         </div>
         
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1610557892470-538688c3b0f7?q=80&w=400&auto=format&fit=crop" alt="Dryer Repair">
+            <img src="service3.jpg" alt="Dryer Repair">
             <div class="service-card-content">
                 <h3>Dryer Repair</h3>
                 <p>If your dryer is not heating, tumbling, or is taking too long to dry, our experts can diagnose and repair it safely and efficiently.</p>
@@ -282,7 +272,7 @@
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1601135065483-5f053c8c93b3?q=80&w=400&auto=format&fit=crop" alt="Stove and Oven Repair">
+            <img src="service4.jpg" alt="Stove and Oven Repair">
             <div class="service-card-content">
                 <h3>Stove, Oven & Range Repair</h3>
                 <p>We handle all cooking appliance issues, including burners that won't light, ovens that won't heat, and broken control panels.</p>
@@ -290,7 +280,7 @@
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1581451996720-3a560c5a1db3?q=80&w=400&auto=format&fit=crop" alt="Dishwasher Repair">
+            <img src="service5.jpg" alt="Dishwasher Repair">
             <div class="service-card-content">
                 <h3>Dishwasher Repair</h3>
                 <p>Leaking, not cleaning, or not draining? We'll get your dishwasher back to working order, fixing pumps, seals, and spray arms.</p>
@@ -298,7 +288,7 @@
         </div>
 
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1596205218840-2f00f0f42b4c?q=80&w=400&auto=format&fit=crop" alt="Microwave Repair">
+            <img src="service6.jpg" alt="Microwave Repair">
             <div class="service-card-content">
                 <h3>Microwave Repair</h3>
                 <p>For microwaves that won't heat, turn on, or have a broken turntable, we offer quick repairs for built-in and over-the-range models.</p>
