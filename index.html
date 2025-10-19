@@ -408,6 +408,56 @@
             color: var(--text-light);
             margin: 0;
         }
+        /* UPDATED: Features List (New 2x2 Grid UI) */
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2x2 grid */
+            gap: 15px; /* Spacing between grid items */
+        }
+
+        .features-list li {
+            background: var(--white);
+            border: 0; /* Remove old border */
+            padding: 20px;
+            margin-bottom: 0; /* Handled by gap */
+            box-shadow: var(--shadow-light);
+            border-radius: 12px; /* Rounded corners */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center; /* Center icon and text */
+            border-bottom: 4px solid var(--primary-blue); /* Accent border */
+        }
+
+        .features-list li:hover {
+            transform: translateY(-5px); /* Lift on hover */
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Style for the new icons */
+        .features-list li i {
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+            margin-bottom: 12px;
+            display: block; /* Make it a block element for spacing */
+        }
+
+        .features-list li strong {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block; /* Make it a block element */
+            margin-bottom: 5px;
+        }
+
+        /* New paragraph style within the feature item */
+        .features-list li p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin: 0;
+        }
 
     </style>
 </head>
@@ -467,11 +517,27 @@
             Is your appliance acting up? Don't let a malfunction disrupt your day. Our certified technicians provide reliable and efficient repair services.
         </p>
 
-        <ul class="features-list">
-            <li><strong>$80 Flat-Rate Service:</strong> One transparent price for diagnostics &amp; repairs. No surprises.</li>
-            <li><strong>Expert Technicians:</strong> Highly skilled professionals dedicated to fixing your appliances right.</li>
-            <li><strong>Fast &amp; Reliable:</strong> Quick response times to get your home running smoothly again.</li>
-            <li><strong>All Major Brands:</strong> We service refrigerators, washers, dryers, ovens, and more.</li>
+     <ul class="features-list">
+            <li>
+                <i class="fa-solid fa-dollar-sign"></i>
+                <strong>$80 Flat-Rate Service</strong>
+                <p>One transparent price for diagnostics & repairs. No surprises.</p>
+            </li>
+            <li>
+                <i class="fa-solid fa-user-gear"></i>
+                <strong>Expert Technicians</strong>
+                <p>Skilled pros dedicated to fixing your appliances right.</p>
+            </li>
+            <li>
+                <i class="fa-solid fa-bolt"></i>
+                <strong>Fast & Reliable</strong>
+                <p>Quick response times to get your home running smoothly.</p>
+            </li>
+            <li>
+                <i class="fa-solid fa-check-circle"></i>
+                <strong>All Major Brands</strong>
+                <p>We service refrigerators, washers, dryers, ovens, and more.</p>
+            </li>
         </ul>
 
         <div class="service-card">
