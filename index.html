@@ -3,195 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Tech - Appliance Repair</title>
+    <title>Fixed Tech - Premium Appliance Repair</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Basic Setup --- */
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+        /* --- General Setup & Premium Base --- */
+        :root {
+            --primary-blue: #004a99;
+            --secondary-blue: #007bff;
+            --light-blue: #e0f2fe;
+            --accent-green: #25D366;
+            --text-dark: #333;
+            --text-light: #555;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
-        /* --- Main vCard (Above the Fold) --- */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--light-blue) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+
+        /* --- Animations & Background Elements (The "Wow" Factor) --- */
+        .animated-bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(0, 74, 153, 0.1); /* Slightly transparent primary blue */
+            border-radius: 50%;
+            animation: moveShape 20s infinite alternate ease-in-out;
+            opacity: 0.6;
+            filter: blur(15px);
+        }
+
+        .shape.s1 { width: 100px; height: 100px; top: 10%; left: 5%; animation-delay: 0s; }
+        .shape.s2 { width: 150px; height: 150px; top: 20%; right: 10%; animation-delay: 5s; background: rgba(0, 123, 255, 0.12); } /* Secondary blue */
+        .shape.s3 { width: 80px; height: 80px; bottom: 15%; left: 15%; animation-delay: 10s; }
+        .shape.s4 { width: 120px; height: 120px; bottom: 5%; right: 20%; animation-delay: 15s; background: rgba(0, 74, 153, 0.15); }
+        .shape.s5 { width: 90px; height: 90px; top: 35%; left: 40%; animation-delay: 2s; }
+
+        @keyframes moveShape {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(calc(50vw - 50%), calc(50vh - 50%)) scale(1.1) rotate(45deg); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* --- Main vCard Container (Elevated Look) --- */
         .vcard-container {
-            max-width: 350px;
-            margin: 20px auto;
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            padding: 25px;
+            max-width: 380px; /* Slightly wider for a more modern feel */
+            margin: 40px auto 20px auto; /* More vertical spacing */
+            background: var(--white);
+            border-radius: 20px; /* More pronounced rounded corners */
+            box-shadow: var(--shadow-medium); /* Deeper shadow */
+            padding: 30px;
             text-align: center;
             box-sizing: border-box;
+            position: relative;
+            z-index: 1; /* Ensure content is above animated background */
+            transition: transform 0.3s ease;
+        }
+
+        .vcard-container:hover {
+            transform: translateY(-5px); /* Subtle lift on hover */
         }
 
         .logo {
-            max-width: 100%; /* Control max size */
-            height: auto;     /* Maintain aspect ratio */
-            margin: 0 auto 15px;
+            max-width: 180px; /* Slightly larger logo */
+            height: auto;
+            margin: 0 auto 20px; /* More spacing */
             display: block;
+            border-radius: 10px; /* Soften logo corners if it's rectangular */
+            box-shadow: var(--shadow-light); /* Subtle shadow for the logo */
         }
 
         .vcard-container h1 {
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            font-size: 2.2rem;
-            color: #004a99; /* Blue from poster */
+            font-size: 2.8rem; /* Larger, more impactful title */
+            color: var(--primary-blue);
+            font-weight: 800; /* Extra bold */
+            letter-spacing: -1px; /* Tighter letter spacing */
+            line-height: 1.1;
         }
 
         .vcard-container .tagline {
-            font-size: 1rem;
-            color: #555;
-            margin-top: 5px;
-            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 8px;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .offer-highlight {
-            background: #f0f5ff;
-            border: 1px solid #b3cfff;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)); /* Gradient background */
+            border: none; /* Remove border */
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .offer-highlight::before {
+            content: '🌟'; /* Star or sparkling emoji */
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 3em;
+            opacity: 0.3;
+            transform: rotate(20deg);
         }
 
         .offer-highlight .price {
-            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem; /* Larger price */
             font-weight: 800;
-            color: #004a99;
             line-height: 1;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
         }
 
         .offer-highlight .price-desc {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #333;
-            margin-top: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 8px;
         }
 
-        /* --- Clickable Buttons --- */
+        /* --- Clickable Buttons (Animated & Modern) --- */
         .contact-buttons .btn {
-            display: block;
-            padding: 16px;
-            margin-bottom: 12px;
-            border-radius: 10px;
+            display: flex; /* Use flexbox for icon alignment */
+            align-items: center;
+            justify-content: center;
+            padding: 18px; /* More padding */
+            margin-bottom: 15px;
+            border-radius: 12px; /* Slightly more rounded */
             text-decoration: none;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            color: var(--white);
+            font-weight: 700; /* Bolder text */
+            font-size: 1.15rem; /* Slightly larger text */
+            transition: all 0.3s ease; /* Smooth transitions for all properties */
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: 0;
+        }
+
+        .contact-buttons .btn:hover::before {
+            width: 300%;
+            height: 300%;
         }
 
         .contact-buttons .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px) scale(1.02); /* More pronounced hover effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .btn-call {
-            background-color: #004a99; /* Primary Blue */
+            background-color: var(--primary-blue);
         }
         .btn-whatsapp {
-            background-color: #25D366; /* WhatsApp Green */
+            background-color: var(--accent-green);
         }
         .btn-email {
-            background-color: #6c757d; /* Neutral Grey */
+            background-color: #6c757d; /* Keep grey for email for contrast */
         }
         
         .btn i {
-            margin-right: 10px;
+            margin-right: 12px; /* More spacing for icon */
+            font-size: 1.4rem; /* Larger icons */
+            position: relative;
+            z-index: 1; /* Ensure icon is above hover animation */
+        }
+        .btn span { /* To make text also above the ::before */
+            position: relative;
+            z-index: 1;
         }
 
-        /* --- Social Media Icons --- */
+
+        /* --- Social Media Icons (Interactive) --- */
         .social-media {
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
         .social-media a {
-            font-size: 2.2rem;
-            color: #004a99;
-            margin: 0 12px;
+            font-size: 2.5rem; /* Larger icons */
+            color: var(--primary-blue);
+            margin: 0 15px;
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block; /* Allows transform to work properly */
         }
 
         .social-media a:hover {
-            color: #007bff;
+            color: var(--secondary-blue);
+            transform: translateY(-5px) rotate(5deg); /* Bounce and subtle rotate */
         }
 
-        /* --- Services Details (Below the Fold) --- */
+        /* --- Services Details (Stylish Sections) --- */
         .services-container {
-            max-width: 450px;
-            margin: 25px auto;
-            padding: 0 15px;
+            max-width: 420px; /* Slightly wider service cards */
+            margin: 40px auto;
+            padding: 0 20px; /* More internal padding */
             box-sizing: border-box;
+            position: relative;
+            z-index: 1;
         }
 
         .services-container h2 {
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
-            color: #004a99;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
         }
 
+        .services-container h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-blue);
+            border-radius: 2px;
+        }
+
+
         .intro-text {
-            font-size: 1.1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.15rem;
             text-align: center;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #444;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            color: var(--text-dark);
+            font-weight: 500;
         }
 
         .features-list {
             list-style: none;
             padding: 0;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .features-list li {
-            background: #ffffff;
-            border-left: 5px solid #004a99;
-            padding: 15px;
-            margin-bottom: 10px;
-            font-size: 1rem;
+            background: var(--white);
+            border-left: 6px solid var(--primary-blue); /* Thicker border */
+            padding: 18px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
             font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            border-radius: 0 8px 8px 0;
+            box-shadow: var(--shadow-light);
+            border-radius: 0 10px 10px 0; /* More rounded edge */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .features-list li:hover {
+            transform: translateX(5px); /* Slide right on hover */
+            box-shadow: var(--shadow-medium);
         }
 
         .features-list li strong {
-            color: #004a99;
+            color: var(--primary-blue);
+            font-weight: 700;
         }
 
-        /* --- Individual Service Cards --- */
+        /* --- Individual Service Cards (Enhanced Design) --- */
         .service-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-            margin-bottom: 20px;
-            overflow: hidden; /* To contain the image radius */
+            background: var(--white);
+            border-radius: 15px; /* More pronounced rounded corners */
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02); /* Lift and slight scale on hover */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
         }
 
         .service-card img {
             width: 100%;
-            height: 200px;
+            height: 220px; /* Slightly taller images */
             object-fit: cover;
             display: block;
+            border-bottom: 1px solid #eee; /* Separator for image */
         }
         
         .service-card-content {
-            padding: 20px;
+            padding: 25px; /* More padding */
+            text-align: left; /* Align text left within the card */
         }
 
         .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
             margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.6rem; /* Larger heading */
+            color: var(--primary-blue);
+            font-weight: 700;
         }
 
         .service-card p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #555;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-light);
             margin: 0;
         }
 
@@ -199,14 +348,20 @@
 </head>
 <body>
 
+    <div class="animated-bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+        <div class="shape s5"></div>
+    </div>
+
     <div class="vcard-container">
         
         <img src="FixedTech.png" alt="Fixed Tech Logo" class="logo">
         
-        
-        <h1 class="tagline">Appliance Repair and Solutions</h1>
-
-        <div class="offer-highlight">
+        <h1>Fixed Tech</h1>
+        <p class="tagline">Your Trusted Appliance Repair & Solutions Partner</p> <div class="offer-highlight">
             <div class="price">$80</div>
             <div class="price-desc">Flat-Rate Diagnostics & Repairs</div>
         </div>
@@ -214,15 +369,15 @@
         <div class="contact-buttons">
             <a href="tel:+12499970555" class="btn btn-call">
                 <i class="fa-solid fa-phone"></i>
-                Book a Visit Now
+                <span>Call Us Now!</span>
             </a>
             <a href="https://wa.me/12499970555?text=Hello%20Fixed%20Tech!%20My%20appliance%20is%20acting%20up%20and%20I%20need%20a%20repair%20service." class="btn btn-whatsapp" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i>
-                Send a WhatsApp
+                <span>Chat on WhatsApp</span>
             </a>
             <a href="mailto:info@fixedtech.ca" class="btn btn-email">
                 <i class="fa-solid fa-envelope"></i>
-                Send an Email
+                <span>Send Us an Email</span>
             </a>
         </div>
 
@@ -238,60 +393,61 @@
         <h2>Our Expert Services</h2>
         
         <p class="intro-text">
-            Is your appliance acting up? Don't let a malfunction disrupt your day. We're here to help!
+            Is your appliance acting up? Don't let a malfunction disrupt your day. Our certified technicians provide reliable and efficient repair services.
         </p>
 
         <ul class="features-list">
-            <li><strong>Flat-Rate Service:</strong> Only $80 for diagnostics and repairs.</li>
-            <li><strong>Expert Technicians:</strong> Skilled professionals ready to fix your appliances efficiently.</li>
-            <li><strong>Transparent Pricing:</strong> No hidden fees—what you see is what you pay.</li>
+            <li><strong>Flat-Rate Service:</strong> Transparent pricing, just $80 for comprehensive diagnostics and repairs.</li>
+            <li><strong>Expert Technicians:</strong> Highly skilled professionals dedicated to fixing your appliances right the first time.</li>
+            <li><strong>Transparent Pricing:</strong> No hidden fees, no surprises—what you see is exactly what you pay.</li>
+            <li><strong>Fast & Reliable:</strong> Quick response times to get your home running smoothly again.</li>
         </ul>
 
         <div class="service-card">
-            <img src="service1.jpg" alt="Refrigerator Repair">
+            <img src="" alt="Refrigerator Repair">
             <div class="service-card-content">
                 <h3>Refrigerator & Freezer Repair</h3>
-                <p>From not cooling to strange noises or ice maker issues, we service all brands of refrigerators, freezers, and wine coolers.</p>
+                <p>From inconsistent cooling to unusual noises or ice maker malfunctions, our experts service all major brands of refrigerators, freezers, and wine coolers.</p>
             </div>
         </div>
 
         <div class="service-card">
-            <img src="service2.jpg" alt="Washing Machine Repair">
+            <img src="" alt="Washing Machine Repair">
             <div class="service-card-content">
                 <h3>Washing Machine Repair</h3>
-                <p>Won't spin, drain, or start? We fix top-load and front-load washers, handling leaks, error codes, and mechanical failures.</p>
+                <p>Facing issues like your washer not spinning, draining, or starting? We expertly fix both top-load and front-load machines, addressing leaks, error codes, and mechanical failures.</p>
             </div>
         </div>
         
         <div class="service-card">
-            <img src="service3.jpg" alt="Dryer Repair">
+            <img src="" alt="Dryer Repair">
             <div class="service-card-content">
                 <h3>Dryer Repair</h3>
-                <p>If your dryer is not heating, tumbling, or is taking too long to dry, our experts can diagnose and repair it safely and efficiently.</p>
+                <p>If your dryer isn't heating, tumbling, or is taking too long to dry your clothes, our skilled technicians can quickly diagnose and safely repair it, ensuring efficient performance.</p>
             </div>
         </div>
 
         <div class="service-card">
-            <img src="service4.jpg" alt="Stove and Oven Repair">
+            <img src="" alt="Stove and Oven Repair">
             <div class="service-card-content">
                 <h3>Stove, Oven & Range Repair</h3>
-                <p>We handle all cooking appliance issues, including burners that won't light, ovens that won't heat, and broken control panels.</p>
+                <p>We expertly handle all cooking appliance problems, from burners that won't ignite to ovens that refuse to heat and damaged control panels, restoring your kitchen's heart.</p>
             </div>
         </div>
 
         <div class="service-card">
-            <img src="service5.jpg" alt="Dishwasher Repair">
+            <img src="" alt="Dishwasher Repair">
             <div class="service-card-content">
                 <h3>Dishwasher Repair</h3>
-                <p>Leaking, not cleaning, or not draining? We'll get your dishwasher back to working order, fixing pumps, seals, and spray arms.</p>
+                <p>Experiencing leaks, poor cleaning, or drainage problems? We'll efficiently restore your dishwasher's performance by fixing issues with pumps, seals, and spray arms.</p>
             </div>
         </div>
 
         <div class="service-card">
-            <img src="service6.jpg" alt="Microwave Repair">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/16690231946601889089_0" alt="Microwave Repair">
             <div class="service-card-content">
                 <h3>Microwave Repair</h3>
-                <p>For microwaves that won't heat, turn on, or have a broken turntable, we offer quick repairs for built-in and over-the-range models.</p>
+                <p>For microwaves that won't heat, power on, or have a broken turntable, we offer fast and reliable repairs for both built-in and over-the-range models.</p>
             </div>
         </div>
 
